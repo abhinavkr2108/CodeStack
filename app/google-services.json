@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "876307138334",
+    "project_id": "code-stack-302c3",
+    "storage_bucket": "code-stack-302c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876307138334:android:7ea04669f71d3e4e27eb0f",
+        "android_client_info": {
+          "package_name": "com.example.codestack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876307138334-dtka3gnb47lki278hce4l3qagte5nkb8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBC5Fm7CNfryflZFclm7OAv41BW3TBi98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876307138334-dtka3gnb47lki278hce4l3qagte5nkb8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

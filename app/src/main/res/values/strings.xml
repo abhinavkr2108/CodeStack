@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Code Stack</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_desc">An App by the developers,dedicated to the developers</string>
+    <string name="your_email">Your Email...</string>
+    <string name="your_password">Your Password...</string>
+</resources>
