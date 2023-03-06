@@ -26,7 +26,11 @@
         android:id="@+id/connectFragment"
         android:name="com.example.codestack.ui.fragments.ConnectFragment"
         android:label="fragment_connect"
-        tools:layout="@layout/fragment_connect" />
+        tools:layout="@layout/fragment_connect" >
+        <action
+            android:id="@+id/action_connectFragment_to_addPostFragment"
+            app:destination="@id/addPostFragment" />
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.codestack.ui.fragments.AccountFragment"
@@ -59,4 +63,13 @@
         android:id="@+id/onBoardingActivity"
         android:name="com.example.codestack.ui.activities.OnBoardingActivity"
         android:label="OnBoardingActivity" />
+    <fragment
+        android:id="@+id/addPostFragment"
+        android:name="com.example.codestack.ui.fragments.AddPostFragment"
+        android:label="AddPostFragment" />
+    <fragment
+        android:id="@+id/resumeFragment2"
+        android:name="com.example.codestack.ui.fragments.ResumeFragment"
+        android:label="fragment_resume"
+        tools:layout="@layout/fragment_resume" />
 </navigation>

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.bumptech.glide.Glide
 import com.example.codestack.R
 import com.example.codestack.bloggerapi.BloggerResponse
@@ -15,6 +16,7 @@ import com.example.codestack.newsapi.NewsResponse
 import com.example.codestack.ui.fragments.BlogsFragment
 import com.example.codestack.ui.fragments.BlogsFragmentDirections
 import com.example.codestack.ui.fragments.JobFragmentDirections
+import com.squareup.picasso.Picasso
 import org.jsoup.Jsoup
 
 class BloggerAdapter:ListAdapter<Article, BloggerAdapter.BloggerViewHolder>(BloggerCallBack()) {
@@ -30,6 +32,7 @@ class BloggerAdapter:ListAdapter<Article, BloggerAdapter.BloggerViewHolder>(Blog
                 publisher.text = it.publishedAt
                 description.text = it.description
                // Glide.with(BlogsFragment()).load(it.urlToImage).error(R.drawable.defaultimage).into(image)
+                Picasso.get().load(it.urlToImage).error(R.drawable.defaultimage).into(image)
                 itemView.setOnClickListener {
                     val direction = BlogsFragmentDirections.actionBlogsFragmentToNewsDetails(getItem(position))
                     it.findNavController().navigate(direction)

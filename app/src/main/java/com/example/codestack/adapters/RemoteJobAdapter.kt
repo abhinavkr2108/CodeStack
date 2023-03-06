@@ -6,11 +6,13 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.bumptech.glide.Glide
 import com.example.codestack.R
 import com.example.codestack.api.Job
 import com.example.codestack.databinding.JobLayoutAdpaterBinding
 import com.example.codestack.ui.fragments.JobFragmentDirections
+import com.squareup.picasso.Picasso
 
 class RemoteJobAdapter: ListAdapter<Job, RemoteJobAdapter.RemoteJobViewHolder>(DiffUtilCallback()) {
 
@@ -26,6 +28,7 @@ class RemoteJobAdapter: ListAdapter<Job, RemoteJobAdapter.RemoteJobViewHolder>(D
                 jobType.text = it.job_type
                 jobLocation.text = it.candidate_required_location
                 companyName.text = it.company_name
+                Picasso.get().load(it.company_logo_url).error(R.drawable.defaultimage)
 
                 itemView.setOnClickListener {
                     val direction = JobFragmentDirections.actionJobFragmentToJobDetailsFragment(getItem(position))

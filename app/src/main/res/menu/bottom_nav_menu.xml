@@ -7,6 +7,11 @@
         android:icon="@drawable/ic_baseline_job_24">
     </item>
 
+    <item android:id="@+id/resumeFragment"
+        android:title="Resume Builder"
+        android:icon="@drawable/ic_baseline_event_note_24">
+    </item>
+
     <item android:id="@+id/blogsFragment"
         android:title="Blogs"
         android:icon="@drawable/ic_baseline_newspaper_24">

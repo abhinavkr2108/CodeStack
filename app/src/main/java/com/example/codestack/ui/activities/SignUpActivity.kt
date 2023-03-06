@@ -7,18 +7,23 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.codestack.R
 import com.example.codestack.databinding.ActivitySignUpBinding
+import com.example.codestack.users.User
+import com.example.codestack.users.UserDao
+import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var signUpBinding: ActivitySignUpBinding
     lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         firebaseAuth = FirebaseAuth.getInstance()
         signUpBinding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
 
         signUpBinding.btnSignUp.setOnClickListener{
-            SignUpUser()
+            SignUpUser(firebaseAuth.currentUser)
         }
         signUpBinding.tvLogin.setOnClickListener {
             val intent = Intent(this, LoginAccountActivity::class.java)
@@ -27,7 +32,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun SignUpUser(){
+    private fun SignUpUser(firebaseUser: FirebaseUser?){
         signUpBinding.apply {
             val name = etName.text.toString()
             val email = etEmail.text.toString()
@@ -48,11 +53,18 @@ class SignUpActivity : AppCompatActivity() {
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this@SignUpActivity) {
                     if (it.isSuccessful){
+
                         Toast.makeText(this@SignUpActivity, "Account Created Successfully", Toast.LENGTH_SHORT).show()
+                        val user = firebaseUser?.let {
+                            User(firebaseUser.uid, firebaseUser.email.toString())
+                        }
+                        val userDao = UserDao()
+                        userDao.addUser(user)
                         val intent = Intent(this@SignUpActivity, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     }
+
                     else{
                         Toast.makeText(this@SignUpActivity, "Some Error Occured!!", Toast.LENGTH_SHORT).show()
                     }
