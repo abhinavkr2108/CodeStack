@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,9 +52,11 @@ class ConnectFragment : Fragment(R.layout.fragment_connect) {
         }
     }
 
+
+
     private fun viewPosts(){
         val reference = firebaseDatabase.getReference("Post")
-        postList = ArrayList<Post>()
+        postList = ArrayList()
         reference.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (postsnap in snapshot.children){
@@ -70,7 +73,7 @@ class ConnectFragment : Fragment(R.layout.fragment_connect) {
 
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Toast.makeText(context, "$error Error Occurred! ", Toast.LENGTH_LONG).show()
             }
         })
     }

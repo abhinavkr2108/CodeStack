@@ -7,35 +7,74 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <EditText
-            android:id="@+id/addPost"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_200sdp"
-            android:layout_marginTop="@dimen/_100sdp"
-            android:background="@drawable/edit_text_background"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_16sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </EditText>
+            android:layout_height="match_parent">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPost"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add Post"
-            android:layout_margin="@dimen/_16sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addPost">
+            <ImageView
+                android:id="@+id/addPostImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_180sdp"
+                android:src="@drawable/addimage"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+            </ImageView>
 
-        </com.google.android.material.button.MaterialButton>
+            <EditText
+                android:id="@+id/tvPostDescription"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addPostImage"
+                android:background="@drawable/edit_text_background"
+                android:hint="Add your Post Description"
+                android:gravity="start"
+                android:layout_margin="@dimen/_16sdp">
+            </EditText>
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/tvPostDescription"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/_200sdp"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_margin="@dimen/_16sdp"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/addPostImage">-->
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/etName"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:hint="Enter Your Post Description"-->
+<!--                    android:gravity="start"-->
+<!--                    android:inputType="textCapWords">-->
+
+<!--                </com.google.android.material.textfield.TextInputEditText>-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Post"
+                android:layout_margin="@dimen/_16sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPostDescription">
+
+            </com.google.android.material.button.MaterialButton>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
 </layout>

@@ -13,7 +13,7 @@
     </item>
 
     <item android:id="@+id/blogsFragment"
-        android:title="Blogs"
+        android:title="Tech News"
         android:icon="@drawable/ic_baseline_newspaper_24">
     </item>
 

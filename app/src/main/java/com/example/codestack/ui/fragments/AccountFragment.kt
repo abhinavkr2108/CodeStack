@@ -21,6 +21,8 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
         accountBinding = FragmentAccountBinding.bind(view)
         auth = FirebaseAuth.getInstance()
 
+        accountBinding.tvUserEmail.text = auth.currentUser?.email.toString()
+
         accountBinding.btnLogout.setOnClickListener {
             auth.signOut()
             val direction = AccountFragmentDirections.actionAccountFragmentToOnBoardingActivity()

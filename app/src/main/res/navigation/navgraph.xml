@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_connectFragment_to_addPostFragment"
             app:destination="@id/addPostFragment" />
+        <action
+            android:id="@+id/action_connectFragment_to_postDetailsFragment"
+            app:destination="@id/postDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
@@ -68,8 +71,20 @@
         android:name="com.example.codestack.ui.fragments.AddPostFragment"
         android:label="AddPostFragment" />
     <fragment
-        android:id="@+id/resumeFragment2"
+        android:id="@+id/resumeFragment"
         android:name="com.example.codestack.ui.fragments.ResumeFragment"
         android:label="fragment_resume"
         tools:layout="@layout/fragment_resume" />
+    <fragment
+        android:id="@+id/postDetailsFragment"
+        android:name="com.example.codestack.ui.fragments.PostDetailsFragment"
+        android:label="fragment_post_details"
+        tools:layout="@layout/fragment_post_details" >
+        <argument
+            android:name="post"
+            app:argType="com.example.codestack.users.Post" />
+        <argument
+            android:name="postKey"
+            app:argType="string" />
+    </fragment>
 </navigation>

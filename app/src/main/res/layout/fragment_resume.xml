@@ -1,21 +1,353 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
     </data>
 
-    <FrameLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.fragments.ResumeFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_height="match_parent">
 
-    </FrameLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/resumeToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:elevation="@dimen/_4sdp"
+                android:shadowColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Resume Builder"
+                        android:textSize="@dimen/_16sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </TextView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/resumeToolbar"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_32sdp"
+                    android:background="#DCC2FB"
+                    android:gravity="center"
+                    android:text="Your Personal Information"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold">
+                </TextView>
+
+                <EditText
+                    android:id="@+id/personName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:background="@drawable/resume_details_background"
+                    android:hint="Your name"
+                    android:inputType="textPersonName">
+                </EditText>
+
+                <EditText
+                    android:id="@+id/introText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:background="@drawable/resume_details_background"
+                    android:hint="Your Brief Introduction"
+                    android:inputType="textPersonName">
+                </EditText>
+
+                <EditText
+                    android:id="@+id/yourEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:background="@drawable/resume_details_background"
+                    android:hint="Your Email"
+                    android:inputType="textEmailAddress">
+                </EditText>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_32sdp"
+                    android:background="#DCC2FB"
+                    android:gravity="center"
+                    android:text="Education Qualification"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold">
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/middleSchool"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="Class 10th School"
+                        android:inputType="textPersonName">
+                    </EditText>
+                    <EditText
+                        android:id="@+id/middleSchoolPercentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="Class 10th Percent"
+                        android:inputType="textPersonName">
+                    </EditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/highSchool"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="Class 12th School"
+                        android:inputType="textPersonName">
+                    </EditText>
+                    <EditText
+                        android:id="@+id/highSchoolPercentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="Class 12th Percent"
+                        android:inputType="numberDecimal">
+                    </EditText>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/collegeName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="College Name"
+                        android:inputType="textEmailAddress">
+                    </EditText>
+                    <EditText
+                        android:id="@+id/collegePercentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="College CGPA"
+                        android:inputType="numberDecimal">
+                    </EditText>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_32sdp"
+                    android:background="#DCC2FB"
+                    android:gravity="center"
+                    android:text="Work Experience"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold">
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/companyName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="Company Name"
+                        android:inputType="textPersonName">
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/companyPosition"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="Position"
+                        android:inputType="textPersonName">
+                    </EditText>
+                </LinearLayout>
+                <EditText
+                    android:id="@+id/companyExp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:lines="9"
+                    android:background="@drawable/resume_details_background"
+                    android:hint="Describe your work experience..."
+                    android:inputType="textEmailAddress">
+                </EditText>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/company2Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="Company Name"
+                        android:inputType="textPersonName">
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/company2Position"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="Position"
+                        android:inputType="textPersonName">
+                    </EditText>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/company2Exp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:lines="9"
+                    android:background="@drawable/resume_details_background"
+                    android:hint="Describe your work experience..."
+                    android:inputType="textEmailAddress">
+                </EditText>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_32sdp"
+                    android:background="#DCC2FB"
+                    android:gravity="center"
+                    android:text="Projects"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold">
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/projectName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="Project Name"
+                        android:inputType="textPersonName">
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/projectCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="Code Link"
+                        android:inputType="textPersonName">
+                    </EditText>
+                </LinearLayout>
+                <EditText
+                    android:id="@+id/projectDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:lines="9"
+                    android:background="@drawable/resume_details_background"
+                    android:hint="Describe your project..."
+                    android:inputType="textEmailAddress">
+                </EditText>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/project2Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="Project Name"
+                        android:inputType="textPersonName">
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/project2Code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:background="@drawable/resume_details_background"
+                        android:hint="Code Link"
+                        android:inputType="textPersonName">
+                    </EditText>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/project2Desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12sdp"
+                    android:lines="9"
+                    android:background="@drawable/resume_details_background"
+                    android:hint="Describe your project..."
+                    android:inputType="textEmailAddress">
+                </EditText>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnResume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_16sdp"
+                    android:text="generate resume">
+                </com.google.android.material.button.MaterialButton>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
 </layout>
