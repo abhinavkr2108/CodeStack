@@ -1,8 +1,5 @@
 package com.example.codestack.ui.fragments
 
-import android.content.ContentResolver
-import android.content.ContentResolver.MimeTypeInfo
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,20 +12,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.example.codestack.R
 import com.example.codestack.databinding.FragmentAddPostBinding
 import com.example.codestack.users.Post
-import com.example.codestack.users.PostDao
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.UploadTask
-import com.google.firebase.storage.UploadTask.TaskSnapshot
 
 
 class AddPostFragment : Fragment() {
-    lateinit var addPostBinding:FragmentAddPostBinding
-    private lateinit var postDao: PostDao
+    private lateinit var addPostBinding:FragmentAddPostBinding
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
     private lateinit var root: DatabaseReference
@@ -47,7 +39,7 @@ class AddPostFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         root = FirebaseDatabase.getInstance().getReference("Post")
         storageReference = FirebaseStorage.getInstance().getReference("post_images")
-        postDao = PostDao()
+        //postDao = PostDao()
 
 
 

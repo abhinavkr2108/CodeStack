@@ -8,8 +8,6 @@ import androidx.databinding.DataBindingUtil
 import com.example.codestack.R
 import com.example.codestack.databinding.ActivitySignUpBinding
 import com.example.codestack.users.User
-import com.example.codestack.users.UserDao
-import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
