@@ -1,11 +1,14 @@
 package com.example.codestack.ui.fragments
 
+import android.Manifest
+import android.content.Context
 import android.os.Bundle
 import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+
 import androidx.fragment.app.Fragment
 import com.example.codestack.R
 import com.example.codestack.databinding.FragmentResumeBinding
@@ -20,6 +23,16 @@ import com.itextpdf.layout.element.Paragraph
 import com.itextpdf.layout.element.Table
 import com.itextpdf.layout.property.HorizontalAlignment
 import com.itextpdf.layout.property.TextAlignment
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.DexterBuilder.MultiPermissionListener
+import com.karumi.dexter.DexterBuilder.Permission
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import com.karumi.dexter.listener.single.PermissionListener
 import java.io.File
 import java.io.FileOutputStream
 
@@ -42,11 +55,36 @@ class ResumeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         resumeBinding.btnResume.setOnClickListener {
-            createResume()
+            checkStoragePermission()
         }
 
     }
 
+    private fun checkStoragePermission(){
+        Dexter.withContext(requireContext())
+            .withPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
+            .withListener(object : MultiplePermissionsListener {
+                override fun onPermissionsChecked(p0: MultiplePermissionsReport?) {
+                    p0.let {
+                        if (p0 != null) {
+                            if (p0.areAllPermissionsGranted()==true){
+                                createResume()
+                            } else{
+                                Toast.makeText(requireContext(), "Please Grant All Permissions", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    p0: MutableList<PermissionRequest>?,
+                    p1: PermissionToken?
+                ) {
+                   p1?.continuePermissionRequest()
+                }
+            }).check()
+
+    }
     private fun createResume() {
         val pdfPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
         val currentTime = System.currentTimeMillis().toString()
